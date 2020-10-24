@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Dynamic;
+using System.Net.Http.Headers;
 
 namespace HelloWorld
 {
@@ -38,6 +39,38 @@ namespace HelloWorld
             double gallonsConsumed = double.Parse(Console.ReadLine());
             //and print their miles-per-gallon
             Console.WriteLine($"Your car was getting {milesDriven/gallonsConsumed} miles-per-gallon.");
+
+
+
+            //The first sentence of Alice’s Adventures in Wonderland is below.  Store this sentence in a string,
+            string sentence = "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, 'and what is the use of a book,' thought Alice 'without pictures or conversation?'";
+            //and then prompt the user for a term to search for within this string
+            Console.WriteLine("What word would you like to search for?");
+            string userInput = Console.ReadLine();
+            //Print whether or not the search term was found.Make the search case-insensitive,
+            //Assume the user enters a word that is in the sentence. Print out its index within the string and its length. 
+            string sentenceToLower = sentence.ToLower();
+            string inputToLower = userInput.ToLower();
+
+            if (!sentenceToLower.Contains(inputToLower))
+            {
+                Console.WriteLine("The word you wanted to search for was not found.");
+            }
+            else
+            {
+                int searchLength = userInput.Length;
+                int searchIndex = sentenceToLower.IndexOf(inputToLower);
+                Console.WriteLine($"The word '{userInput}' was found at the index of {searchIndex} and is {searchLength} characters long.");
+                //Next, remove the word from the string and print the sentence again to confirm your code. Remember that strings are immutable, so you will 
+                //need to reassign the old sentence variable or create a new one to store the updated phrase.
+                string searchRemoved = sentence.Remove(searchIndex, searchLength);
+                Console.WriteLine($"Searched word: {sentence.Substring(searchIndex, searchLength)} Remaining sentence: {searchRemoved}");
+
+            }
+
+
+
+
         }
     }
 }
