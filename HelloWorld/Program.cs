@@ -30,6 +30,14 @@ namespace HelloWorld
             Console.WriteLine($"The area of a rectangle with the length of {length} and a width of {width} is {area}.");
             //Run the program to verify your code.
 
+            //Write a program that asks a user for the number of miles they have driven 
+            Console.WriteLine("How many miles have you driven?");
+            double milesDriven = double.Parse(Console.ReadLine());
+            //and the amount of gas they’ve consumed (in gallons), 
+            Console.WriteLine("How many gallons of gas did that consume?");
+            double gallonsConsumed = double.Parse(Console.ReadLine());
+            //and print their miles-per-gallon
+            Console.WriteLine($"Your car was getting {milesDriven/gallonsConsumed} miles-per-gallon.");
         }
     }
 }
